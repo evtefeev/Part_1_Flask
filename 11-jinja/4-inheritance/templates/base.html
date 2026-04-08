@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Default Title{% endblock title %}</title>
+</head>
+<body>
+    <header>
+        <h1>Test site</h1>
+    </header>
+
+    <main>
+        {% block content %}
+        <p>Default content goes here.</p>
+        {% endblock content %}
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Test site</p>
+    </footer>
+</body>
+</html>

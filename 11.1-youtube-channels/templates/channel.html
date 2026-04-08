@@ -1,0 +1,15 @@
+{% extends "base.html"%}
+{% block title %}{{ channel.name }} - Details{% endblock title%}
+
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">{{ channel.name }}</h1>
+    <p class="text-center"><strong>Subscribers:</strong> {{ channel.subscribers }}</p>
+    <p class="text-center"><em>{{ channel.description }}</em></p>
+    <div class="text-center">
+        <a href="{{ channel.url }}" class="btn btn-danger" target="_blank">Visit YouTube</a>
+        <a href="{{ url_for('home') }}" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>
+{% endblock content %}

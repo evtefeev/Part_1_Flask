@@ -1,0 +1,16 @@
+<h1>Привіт, {{ name }}!</h1>
+<p>Тобі {{ age }} років</p>
+
+
+{% if age >= 18 %}
+    <p>Ви повнолітній.</p>
+{% else %}
+    <p>Вам ще немає 18 років.</p>
+{% endif %}
+
+<ul>
+    {% for hobbi in hobbies %}
+        <li>{{ hobbi }}</li>
+    {% endfor %}
+</ul>
+
