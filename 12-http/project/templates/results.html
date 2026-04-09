@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Results Page{% endblock title %}
+
+{% block content %}
+<h2>Test Results</h2>
+<ul>
+    {% for student in students %}
+    <li>
+        {% if student.score > 80 %}
+        ✅ <strong>{{ student.name }}</strong>: {{ student.score }}/{{ max_score }}
+        {% else %}
+        ❌ <strong>{{ student.name }}</strong>: {{ student.score }}/{{ max_score }}
+        {% endif %}
+        <a href="{{url_for('update_score', name = student.name)}}">Edit score</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock content %}
