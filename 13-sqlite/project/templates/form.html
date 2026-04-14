@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Add Page{% endblock title %}
+
+{% block content %}
+
+
+<style>
+
+</style>
+
+<h2>Add Results</h2>
+<form action="{{url_for('add_student')}}" method="post">
+    <input type="text" name="name" placeholder="Enter name">
+    <input type="number" name="score" placeholder="Enter score">
+    <button type="submit">Submit</button>
+</form>
+{% endblock content %}
