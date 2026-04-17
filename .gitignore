@@ -1,1 +1,3 @@
 /.venv
+14-postgres/config.py
+*/__pycache__/*
