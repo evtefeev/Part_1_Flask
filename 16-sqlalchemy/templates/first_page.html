@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    {%for student in data%}
+        <h2>{{student.name}}</h2>
+        <small>{{student.group}}</small>
+        <p>{{student.university}}</p>
+        <p>{{student.specialty}}</p>
+    {%endfor%}
+</div>
+ <nav>
+        <a href="/search_greades">Учбові результати</a>
+    </nav>
+</body>
+</html>

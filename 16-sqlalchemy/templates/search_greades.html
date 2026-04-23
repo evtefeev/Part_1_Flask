@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    <p>Ведіть ім'я</p>
+    <input type="text" name="username">
+    <button type="submit"></button>
+</form>
+<h2>{{message}}</h2>
+
+{%if data%}
+    <h2>Результати студента {{data.name}}</h2>
+    {%for i in data_grades%}
+        <p>Предмет: {{i.subject}}</p>
+        <p>Оцінка: {{i.grade}}</p>
+        <p>Зараховано: {{i.passed}}</p>
+    {%endfor%}
+{%endif%}
+</body>
+</html>
