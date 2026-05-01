@@ -3,3 +3,4 @@
 */__pycache__/*
 15-postgres/config.py
 16-sqlalchemy/config.py
+17-miniproject/config.py

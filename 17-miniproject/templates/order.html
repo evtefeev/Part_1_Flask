@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }}</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        img {
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        h3 {
+            margin-top: 15px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .description {
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            margin-top: 15px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            background: #0056b3;
+        }
+
+        .note {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <img src="
+            {% if product.image_filename.startswith('http') %}
+            {{ product.image_filename }}
+             {% else %}
+            /static/images/{{ product.image_filename }}
+            {% endif %}" alt="{{ product.name }}">
+
+        <h3>{{ product.name }}</h3>
+        <p class="price">{{ product.price }} ₴</p>
+        <p class="description">{{ product.description }}</p>
+
+        <h4>Оформлення замовлення</h4>
+
+        <form method="post">
+            <label for="phone">Ваш номер телефону:</label>
+            <input type="tel" id="phone" name="phone" placeholder="+380..." required>
+
+            <label for="email">Адреса електронної пошти:</label>
+            <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+
+            <input type="submit" value="Замовити">
+        </form>
+
+        <p class="note">
+            *Після оформлення замовлення з вами зв'яжеться консультант
+        </p>
+    </div>
+
+</body>
+
+</html>
