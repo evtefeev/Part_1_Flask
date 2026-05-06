@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul style="color:red;">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {%block body%}
+    Content
+    {%endblock body%}
+    <br>
+    {% if current_user.is_authenticated %}
+    <p>Ви увійшли як {{ current_user.username }} | <a href="{{ url_for('logout') }}">Вийти</a></p>
+    {% endif %}
+</body>
+
+</html>
