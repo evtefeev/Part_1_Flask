@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}"> 
+        <p>Ім'я отримувача:</p>
+        <input type="text" name="username">
+        <p>Сума переказу:</p>
+        <input type="text" name="num">
+        <button type="submit">Надіслати</button>
+    </form>
+</body>
+</html>

