@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+
+<body>
+    {% if message %}
+    <h3>{{message}}</h3>
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="user_file">
+        <input type="text" name="file_desc">
+        <input type='submit' value="Завантажити">
+    </form>
+
+    <a href="{{url_for('f_page_2')}}">All files</a>
+</body>
+
+</html>
