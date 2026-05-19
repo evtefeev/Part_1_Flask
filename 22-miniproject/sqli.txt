@@ -1,0 +1,2 @@
+'attacker', 'win', 999);\n DROP TABLE results; --
+'hacker', 'win', 9999); --

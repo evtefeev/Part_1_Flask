@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Сапер</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+        }
+
+        .board{
+            display:grid;
+            grid-template-columns: repeat({{ size }}, 50px);
+            gap:2px;
+        }
+
+        .cell{
+            width:50px;
+            height:50px;
+        }
+
+        button{
+            width:50px;
+            height:50px;
+            font-size:20px;
+            cursor:pointer;
+        }
+
+        .opened{
+            width:50px;
+            height:50px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:#ddd;
+            font-size:20px;
+        }
+
+        table{
+            margin-top:20px;
+            border-collapse: collapse;
+        }
+
+        td, th{
+            border:1px solid black;
+            padding:5px 10px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<h1>💣 Сапер</h1>
+
+<h2>Гравець: {{ session['name'] }}</h2>
+
+<h3>Час: {{ seconds }} сек</h3>
+
+{% if game_over %}
+
+    {% if win %}
+        <h2>🎉 Перемога!</h2>
+    {% else %}
+        <h2>💥 Програш!</h2>
+    {% endif %}
+
+    <a href="/restart">Нова гра</a>
+
+{% endif %}
+
+<div class="board">
+
+{% for row in board %}
+    {% for cell in row %}
+
+        <div class="cell">
+
+        {% if cell.opened or game_over and cell.mine %}
+
+            <div class="opened">
+
+                {% if cell.mine %}
+                    💣
+                {% else %}
+                    {{ cell.count }}
+                {% endif %}
+
+            </div>
+
+        {% else %}
+
+            <form method="POST">
+
+                <input type="hidden" name="x" value="{{cell.x}}">
+                <input type="hidden" name="y" value="{{cell.y}}">
+
+                <button type="submit">⬛</button>
+
+            </form>
+
+        {% endif %}
+
+        </div>
+
+    {% endfor %}
+{% endfor %}
+
+</div>
+
+
+<h2>📊 Останні результати</h2>
+
+<table>
+
+    <tr>
+        <th>Ім'я</th>
+        <th>Результат</th>
+        <th>Час</th>
+    </tr>
+
+    {% for result in results %}
+
+    <tr>
+        <td>{{ result[0] }}</td>
+        <td>{{ result[1] }}</td>
+        <td>{{ result[2] }} сек</td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+</body>
+</html>
