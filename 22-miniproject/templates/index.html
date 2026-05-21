@@ -93,7 +93,7 @@
         {% else %}
 
             <form method="POST">
-
+                <input type="hidden" name="csrf_token" value="{{ session['csrf_token'] }}"> 
                 <input type="hidden" name="x" value="{{cell.x}}">
                 <input type="hidden" name="y" value="{{cell.y}}">
 

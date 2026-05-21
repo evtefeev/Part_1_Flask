@@ -1,3 +1,5 @@
+import secrets
+
 from flask import Flask, render_template, request, session, redirect
 import random
 import sqlite3
@@ -172,6 +174,13 @@ def main():
     """
     Головна сторінка гри.
     """
+
+    if "csrf_token" not in session:
+        session["csrf_token"] = secrets.token_hex(16)  # Генерація токена якщо його немає в сесії
+
+    if request.method == 'POST':
+        if request.form.get("csrf_token") != session["csrf_token"]:
+            return "Запит заблоковано!", 403  # Якщо токен не співпадає з токеном у сесії - запит відхиляється
 
     # Якщо ім'я не введено
     if "name" not in session:
