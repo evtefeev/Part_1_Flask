@@ -174,5 +174,21 @@ def profile():
     )
 
 
+@app.route("/calc", methods=["GET", "POST"])
+def calc():
+    if request.method == "GET":
+        return """
+        <form method='post'>
+        <input type='number' name='n1'>
+        <input type='number' name='n2'>
+        <button>calc</button>
+        </form>
+        """
+    n1 = int(request.form.get("n1"))
+    n2 = int(request.form.get("n2"))
+
+    return f"{n1 + n2}", 200
+
+
 if __name__ == "__main__":
     app.run(debug=True)
